@@ -1,0 +1,32 @@
+﻿@using BloodDonationSystem.Models
+@model BloodDonationSystem.Models.Donor
+
+@{
+    
+    ViewBag.Title = "Profile| Blood Donation System";
+}
+
+
+@{ Donor obj = (Donor)Session["User"];
+    }
+<br />
+<h1  style="color:blue; margin-left:120px">Your Profile</h1><br />
+        <div class="row" style="font-size:15px">
+            <div class="col-md-2"></div>
+            <div class="col-md-6" style="background-color:wheat">
+        <label>Name: </label><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @obj.Name <br /><br />
+          <label>User Name: </label><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @obj.Email <br /><br />
+          <label>City: </label><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@obj.City <br /><br />
+          <label>Blood Group: </label><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@obj.BloodGroup <br /><br />
+          <label>DOB: </label><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@obj.DOB <br /><br />
+          <label>Contact Number: </label><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @obj.ContactNumber <br /><br />
+          
+                </div>
+            <div class="col-md-4">
+                
+               <a class="fancybox" href="~/Content/Images/@obj.ImageName"><img src="~/Content/Images/@obj.ImageName" class="img-responsive img-thumbnail" style="width:220px"/></a>
+            </div>
+            
+            </div>
+     
+<br /><br /><br /><br />

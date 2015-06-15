@@ -1,0 +1,253 @@
+﻿@model BloodDonationSystem.Models.Donor
+
+@{
+    ViewBag.Title = "Register | Blood Donation System";
+
+}
+
+    <br    /><br /><br    /><br />
+<html>
+    <head>   <link rel="stylesheet" href="~/Content/jquery-ui.css">
+      
+      
+  <script src="~/Scripts/jquery-1.10.2.js"></script>
+  <script src="~/Scripts/jquery-ui.js"></script>
+        <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+        <title></title>
+    </head>
+    <body></body>
+</html>
+<div class="container">
+    <div class="row">
+        <form role="form" action="/My/AddDonors" method="post" enctype="multipart/form-data">
+        
+            @Html.ValidationSummary(true)
+            <div class="col-lg-6"style="background-color:ButtonFace;border:solid;border-color:ActiveBorder;border-collapse:collapse">
+                <br /><br />
+                <div class="well well-sm" style="font-size:10px"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
+              
+                <div class="form-group">
+                    <!--<label for="InputName" style="font-size:15px; color:red">Enter Name</label>-->
+                    @Html.LabelFor(m => m.Name, new {style="font-size:15px; color:black" })
+                    <div class="input-group">
+                       <!--<input type="text" class="form-control" name="Name" id="Name" placeholder="XYZ" required>-->
+                        @Html.TextBoxFor(m => m.Name, new {@class="form-control",  placeholder="XYZ" })
+                        
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(m => m.Name)
+                <div class="form-group">
+                   <!-- <label for="InputEmail" style="font-size:15px; color:red">Enter Email</label>-->
+                    @Html.LabelFor(m => m.Email, new {style="font-size:15px; color:black" })
+                    <div class="input-group">
+                        <!--<input type="email" class="form-control" id="UserName" name="UserName" placeholder="xyz@gmail.com" >-->
+                         
+                        @Html.TextBoxFor(m => m.Email, new {@class="form-control",  placeholder="xyz123",id="UserName"})
+                        <input type="button" id="b1" value="Check" />
+                        <div id="result1" style="color:red"></div>
+                        <div id="result2" style="color:green"></div>
+                        @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#checking').hide();
+
+            $('#b1').click(function () {
+
+                var userName = $('#UserName').val();
+
+                //alert('User Name ='+ userName);
+                $('#checking').show();
+                $.getJSON("/my/CheckUserName?UserName=" + userName, function (data) {
+                    $('#checking').hide();
+                    if (data) {
+                        $('#result1').text("");
+                        $('#result2').text("User Name is available");
+                    }
+                    else {
+                        $('#result2').text("");
+                        $('#result1').text("User already exists in database");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+                       
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(m=>m.Email)
+                   <div class="form-group">
+                    <!--<label for="Password" style="font-size:15px; color:red">Password</label>-->
+                       @Html.LabelFor(m => m.Password, new {style="font-size:15px; color:black" })
+                    <div class="input-group">
+                        <!--<input type="password" class="form-control" id="Password" name="Password" placeholder="Password" required>-->
+                        @Html.TextBoxFor(m => m.Password, new {@class="form-control",  placeholder="***",type="Password"})
+                        
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(m=>m.Password)
+                <div class="form-group">
+                    <label for="Password" style="font-size:15px; color:black">Confirm Password</label>
+                    
+                    <div class="input-group">
+                        <!--<input type="password" class="form-control" id="Password1" name="Password1" placeholder="Confirm Password" required>-->
+                        @Html.TextBoxFor(m => m.ConfirmPassword, "", new { @class="form-control", placeholder="Confirm Password" ,type="Password"})
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(m=>m.ConfirmPassword)
+                 <div class="form-group">
+                    <!--<label for="Number" style="font-size:15px; color:red">Contact Number</label>-->
+                     @Html.LabelFor(m => m.ContactNumber, new {style="font-size:15px; color:black" })
+                    <div class="input-group">
+                      <!--  <input type="text" class="form-control" id="ContactNumber" name="ContactNumber" placeholder="+92*****" required>-->
+                        @Html.TextBoxFor(m => m.ContactNumber, new {@class="form-control",  placeholder="+92********" })
+                        
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(m=>m.ContactNumber)
+                <div class="form-group">
+                    <!--<label for="Number" style="font-size:15px; color:red">DoB</label>-->
+                    @Html.LabelFor(m => m.DOB, new {style="font-size:15px; color:black" })
+                    <div class="input-group">
+                        <!--<input type="text" class="form-control" id="DOB" name="DOB" placeholder="DD/MM/YYYY" required>-->
+                        @Html.TextBoxFor(m => m.DOB, new {@class="form-control",  placeholder="DD/MM/YYYY" })
+                      
+      
+      
+
+                        
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(m=>m.DOB) 
+                <div class="form-group">
+                    <!--<label for="city" style="font-size:15px; color:red">City</label>-->
+                    @Html.LabelFor(m => m.City, new {style="font-size:15px; color:black" })
+                     @Html.DropDownListFor(m => m.City, new SelectList(Model.Cities, "CityName", "CityName"), new { @class = "form-control" })
+                   <!--<select class="form-control" id="city" name="city">
+                       
+                       
+                       
+                        <option></option>
+                        <option>Lahore</option> 
+                        <option>Karachi</option>
+                        <option>Islamabad</option>
+                        <option>Queta</option>
+                        <option>Peshawar</option>
+                        <option>Multan</option>
+                        <option>Rawalpindi</option>
+                        <option>Haiderabad</option>
+                        <option>Jhelum</option>
+                        <option>Chakwal</option>
+                        <option>Muree</option>
+                        <option>Raheem yar khan</option>
+                        <option>Muzafarabad</option>
+                        <option>Sakhar</option>
+                        <option>Sawaat</option>
+                        <option>Mianwali</option>
+                        <option>Sargodha</option>
+                        <option>joharabad</option>
+                        <option>Gujrat</option>
+                        <option>Guranwala</option>
+                    </select>-->
+                
+                      <!--<select id="listCities"></select>
+                     <script>
+
+                         $(document).ready(function () {
+                             function LoadInfo() {
+
+                                 $.getJSON("Url.Action("GetCities","My")", null,
+                                     function (data) {
+
+                                         $("#listCities").empty();
+
+                                         $.each(data, function () {
+                                             $("#listCities").append($("<option />").val(this.Id).text(this.CityName));
+                                         });
+
+
+                                     })
+                             }
+                         });
+                           
+    </script>-->
+
+                    </div>
+                @Html.ValidationMessageFor(m=>m.City)
+                <div class="form-group">
+                    <!--<label for="sex" style="font-size:15px; color:red">Sex*</label>-->
+                    @Html.LabelFor(m => m.Sex, new {style="font-size:15px; color:black" })
+                    <div class="radio">
+                        <label style="font-size:15px; font-family:Arial"><input type="radio" name="Sex" value="Male" checked style="font-size:15px">Male</label>
+                    </div>
+                    <div class="radio">
+                        <label style="font-size:15px; font-family:Arial"><input type="radio" name="Sex" value="Female" style="font-size:15px;">Female</label>
+                    </div>
+                      
+                    </div>
+
+                <div class="form-group">
+                    <!--<label for="group" style="font-size:15px; color:red">Blood Group*</label>-->
+                    @Html.LabelFor(m=>m.BloodGroup, new {style="font-size:15px; color:black" })
+                    
+                    <div class="radio">
+                        <label style="font-size:15px; font-family:Arial"><input type="radio" name="BloodGroup" value="A+" checked  >A+</label>
+                    </div>
+                    <div class="radio">
+                        <label style="font-size:15px; font-family:Arial"><input type="radio" name="BloodGroup" value="A-" style="font-size:15px; font-family:Arial; color:red">A-</label>
+                    </div>
+                      <div class="radio">
+                        <label style="font-size:15px; font-family:Arial"><input type="radio" name="BloodGroup" value="B+" style="font-size:15px; font-family:Arial; color:red">B+</label>
+                    </div>
+                      <div class="radio">
+                        <label style="font-size:15px; font-family:Arial"><input type="radio" name="BloodGroup" value="B-" style="font-size:15px; font-family:Arial; color:red">B-</label>
+                    </div>
+                      <div class="radio">
+                        <label style="font-size:15px; font-family:Arial"><input type="radio" name="BloodGroup" value="AB+" style="font-size:15px; font-family:Arial; color:red">AB+</label>
+                    </div>
+                      <div class="radio">
+                        <label style="font-size:15px; font-family:Arial"><input type="radio" name="BloodGroup" value="AB-" style="font-size:15px; font-family:Arial; color:red">AB-</label>
+                    </div>
+                      <div class="radio">
+                        <label style="font-size:15px; font-family:Arial"><input type="radio" name="BloodGroup" value="O+" style="font-size:15px; font-family:Arial; color:red">O+</label>
+                    </div>
+                      <div class="radio">
+                        <label style="font-size:15px; font-family:Arial"><input type="radio" name="BloodGroup" value="O-" style="font-size:15px; font-family:Arial; color:red">O-</label>
+                    </div>  
+                    </div> 
+                <div class="form-group">
+                    <label for="InputMessage" style="font-size:15px; color:black">Upload Image</label>
+                    <div class="input-group">
+                        
+                        <input type="file" name="img" style="font-size:15px" />
+                    </div>
+                </div>
+
+               
+
+                <input type="submit" name="submit" id="submit" value="Register" class="pull-right btn btn-primary btn-lg">
+                <br /><br /><br /><br />
+            </div>
+        
+        </form>
+        <div class="col-lg-5 col-md-push-1">
+            <div class="col-md-12">
+                <img src="~/Content/Images/be_a_hero.jpg" class="img-responsive "/>
+            </div>
+        </div>
+    </div>
+</div><br /><br /><br /><br />
+    
+    

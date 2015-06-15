@@ -1,0 +1,98 @@
+﻿@model BloodDonationSystem.Models.Donor
+@{
+    ViewBag.Title = "NeedBlood| Blood Donation System";
+}
+
+
+
+    <br    /><br /><br    /><br />
+<div class="container">
+    <div class="row">
+      <!--  <form role="form" action="~/My/FetchDonorInfo">-->
+         @using (Html.BeginForm("FetchDonorInfo", "My", FormMethod.Post))
+         {
+            <div class="col-lg-6" style="background-color:ButtonFace;border:solid;border-color:ActiveBorder;border-collapse:collapse">
+                <br /><br />
+                <div class="well well-sm" style="font-size:10px"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
+                <div class="form-group">
+                     @Html.Label("Enter Name", "Enter Name", new { style="color:black"})
+                    <div class="input-group">
+                        <!--<input type="text" class="form-control" name="Name" id="Name" placeholder="Enter Name" required>-->
+                         @Html.TextBox("Name","",new {  placeholder = "xyz", @class="form-control", required = "required"}) 
+
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+              
+                  
+                
+                <div class="form-group">
+                     @Html.Label("City", "City", new { style="color:black"})
+
+                        @Html.DropDownListFor(m => m.City, new SelectList(Model.Cities, "CityName", "CityName"), new { @class = "form-control" })
+                    <!--<select class="form-control" id="city" name="city" required>
+                        <option></option>
+                        <option>All Cities</option>
+                        <option>Lahore</option>
+                        <option>Karachi</option>
+                        <option>Islamabad</option>
+                        <option>Queta</option>
+                        <option>Peshawar</option>
+                        <option>Multan</option>
+                        <option>Rawalpindi</option>
+                        <option>Haiderabad</option>
+                        <option>Jhelum</option>
+                        <option>Chakwal</option>
+                        <option>Muree</option>
+                        <option>Raheem yar khan</option>
+                        <option>Muzafarabad</option>
+                        <option>Sakhar</option>
+                        <option>Sawaat</option>
+                        <option>Mianwali</option>
+                        <option>Sargodha</option>
+                        <option>joharabad</option>
+                        <option>Gujrat</option>
+                        <option>Guranwala</option>
+                    </select>-->
+                      
+                    </div>
+                <div class="form-group">
+                    <!--<label for="sex" style="font-size:15px; color:red">Sex*</label>-->
+                    @Html.Label("Gender", "Gender", new { style="color:black"})
+                    <br />
+
+                     @Html.RadioButton("sex", "Male", true)  Male <br />
+                     @Html.RadioButton("sex", "Female", false) Female <br />
+                      
+                
+                </div>
+                
+
+                <div class="form-group">
+                    <!--<label for="sex" style="font-size:15px; color:red">Sex*</label>-->
+                    @Html.Label("Blood Group", "Blood Group", new { style="color:black"})
+                    <br />
+
+                    <input type="checkbox" name="option1" value="A+"> A+<br>
+                    <input type="checkbox" name="option2" value="A-" > A-<br>
+                    <input type="checkbox" name="option3" value="B+"> B+<br>                      
+                    
+                    <input type="checkbox" name="option4" value="B-"> B-<br>
+                    <input type="checkbox" name="option5" value="AB+" > AB+<br>
+                    <input type="checkbox" name="option6" value="AB-"> AB-<br>
+                    
+                    <input type="checkbox" name="option7" value="O+" > O+<br>
+                    <input type="checkbox" name="option8" value="O-"> O-<br>
+                
+                </div>
+                <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right"><br /><br /><br /><br />
+            </div>
+         }
+        <div class="col-lg-5 col-md-push-1">
+            <div class="col-md-12">
+                <img src="~/Content/Images/needer.jpg" class="img-responsive" />
+            </div>
+        </div>
+    </div>
+</div><br /><br /><br /><br /><br />
+

@@ -1,0 +1,60 @@
+﻿@model BloodDonationSystem.Models.UserFeedback
+@{
+    ViewBag.Title = "FeedBack| Blood Donation System";
+}
+
+<div class="row">
+    <br /><br /><br /><br />
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+
+        <!--Using Html Helpers-->
+        @using (Html.BeginForm("AddFeedback", "My",FormMethod.Post)){
+        @Html.ValidationSummary(true)
+            <div class="col-lg-6"style="background-color:ButtonFace;border:solid;border-color:ActiveBorder;border-collapse:collapse;">
+                 <br /><br />
+                <div class="well well-sm" style="font-size:10px"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
+                <div class="form-group">
+                    <!--<label for="InputName" style="font-size:15px; color:red">Enter Name</label>-->
+                    <!--@Html.Label("Enter Name", "Enter Name", new { style="color:black"})-->
+                        @Html.LabelFor(m=>m.Name, new { style="color:black"})
+                    <div class="input-group"> 
+                        
+                        @Html.TextBoxFor(m=>m.Name,new { placeholder = "xyz", @class="form-control"})
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                    @Html.ValidationMessageFor(m=>m.Name)
+                    <div class="form-group">
+                    <!--<label for="InputEmail" style="font-size:15px; color:red">Enter Email</label>-->
+                        <!--@Html.Label("Enter Email", "Enter Email", new { style="color:red"})-->
+                          @Html.LabelFor(m=>m.Email, new { style="color:black"})
+                    <div class="input-group">
+                        
+                        @Html.TextBoxFor(m=>m.Email,new {Type="Email", placeholder = "Xyz@gmail.com", @class="form-control"})
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(m=>m.Email)
+                     <div class="form-group">
+                    <!--<label for="InputMessage" style="font-size:15px; color:red">Your Feedback</label>-->
+                       <!--  @Html.Label("Your Feedback", "Your Feedback", new { style="color:red"})-->
+                           @Html.LabelFor(m=>m.Message, new { style="color:black"})
+                    <div class="input-group">
+                        @Html.TextArea("Message","",new { placeholder = "feedback", @class="form-control"})
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+               @Html.ValidationMessageFor(m=>m.Message)
+        <input type="submit" name="submit" id="submit" value="Submit" class="pull-right btn btn-primary btn-lg ">
+                    <br /><br />
+                    </div></div>
+        }
+
+    </div>
+    <div class="col-md-5">
+        <img src="~/Content/Images/feedback.jpg" class="img-responsive"/>
+    </div>
+    
+    </div>
+
+<br /><br /><br /><br />

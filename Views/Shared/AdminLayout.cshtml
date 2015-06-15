@@ -1,0 +1,85 @@
+﻿
+<!--This layout used for Profile side views-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Custom.css" rel="stylesheet" />
+    
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #808080;
+}
+</style>
+</head>
+
+<body>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    
+    
+
+    
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+
+            <!--header section -->
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Admin/Index" style="font-family:'Global User Interface'">Welcome</a>
+            </div>
+            <!-- menu section -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="~/Admin/Logout" style="font-size: 20px">Logout</a></li>
+                    <li><a href="~/Admin/ViewFeedBack" style="font-size: 20px">View Feedback</a></li>
+                    
+                    <li><a href="~/Admin/ViewDonors" style="font-size: 20px">View Donors</a></li>
+                    <li><a href="~/Admin/AddCity" style="font-size: 20px">Add City</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    
+
+     <footer>
+      <div class="container">
+        <p style="color:white; font-size:20px" class="text-muted">Developed By Furqan Haider. BITF12M008</p>
+      </div>
+    </footer>
+            @RenderSection("scripts", required: false)
+    @Scripts.Render("~/Scripts/Bundles/jquery");
+        <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+
+</body>
+</html>
+

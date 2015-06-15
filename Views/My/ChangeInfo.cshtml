@@ -1,0 +1,119 @@
+﻿@using BloodDonationSystem.Models
+@model BloodDonationSystem.Models.Donor
+
+@{
+    ViewBag.Title = "ChangeInfo| Blood Donation system";
+    
+}
+@{
+    Donor obj=(Donor)Session["User"];
+ }
+<br /><br /><br /><br />
+  <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-6">
+        <form role="form" action="/My/ChangeProfile" method="post" enctype="multipart/form-data">
+                        @Html.ValidationSummary(true)
+            <div class="col-lg-6"style="background-color:ButtonFace;border:solid;border-color:ActiveBorder;border-collapse:collapse">
+                <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
+                <div class="form-group">
+                    <label for="InputName" style="font-size:15px; color:red">Name</label>
+                    <div class="input-group">
+                        <!--<input type="text" class="form-control" name="Name" id="Name" value=@obj.Name required>-->
+                        @Html.TextBoxFor(m => m.Name, new {@class="form-control",Value=@obj.Name })
+                        @Html.ValidationMessageFor(m=>m.Name)
+                        
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+               
+                
+                   <div class="form-group">
+                    <label for="Password" style="font-size:15px; color:red">Password</label>
+                    <div class="input-group">
+                        <!--<input type="password" class="form-control" id="Password" name="Password" value=@obj.Password required>-->
+                        @Html.TextBoxFor(m => m.Password, new {@class="form-control",Value=@obj.Password, type="Password" })
+                        @Html.ValidationMessageFor(m=>m.Password)
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+
+                  <div class="form-group">
+                    <label for="Password" style="font-size:15px; color:red">Confirm Password</label>
+                    <div class="input-group">
+                        <!--<input type="password" class="form-control" id="Password" name="Password" value=@obj.Password required>-->
+                       @Html.TextBoxFor(m => m.ConfirmPassword, new {@class="form-control",Value=@obj.ConfirmPassword, Type="Password"})
+                        @Html.ValidationMessageFor(m=>m.ConfirmPassword)
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                
+                 <div class="form-group">
+                    <label for="Number" style="font-size:15px; color:red">Contact Number</label>
+                    <div class="input-group">
+                        <!--<input type="text" class="form-control" id="ContactNumber" name="ContactNumber" value=@obj.ContactNumber required>-->
+                        @Html.TextBoxFor(m => m.ContactNumber, new {@class="form-control",Value=@obj.ContactNumber })
+                        @Html.ValidationMessageFor(m=>m.ContactNumber)
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Number" style="font-size:15px; color:red">DoB</label>
+                    <div class="input-group">
+                        <!--<input type="text" class="form-control" id="DOB" name="DOB" value=@obj.DOB required>-->
+                        @Html.TextBoxFor(m => m.DOB, new {@class="form-control",Value=@obj.DOB })
+                        @Html.ValidationMessageFor(m=>m.DOB)
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city" style="font-size:15px; color:red">City</label>
+                    <select class="form-control" id="city" name="city">
+                        <option>@obj.City</option>
+                        <option>Lahore</option>
+                        <option>Karachi</option>
+                        <option>Islamabad</option>
+                        <option>Queta</option>
+                        <option>Peshawar</option>
+                        <option>Multan</option>
+                        <option>Rawalpindi</option>
+                        <option>Haiderabad</option>
+                        <option>Jhelum</option>
+                        <option>Chakwal</option>
+                        <option>Muree</option>
+                        <option>Raheem yar khan</option>
+                        <option>Muzafarabad</option>
+                        <option>Sakhar</option>
+                        <option>Sawaat</option>
+                        <option>Mianwali</option>
+                        <option>Sargodha</option>
+                        <option>joharabad</option>
+                        <option>Gujrat</option>
+                        <option>Gujranwala</option>
+                    </select>
+                      @Html.ValidationMessageFor(m=>m.City)
+                    </div>
+
+                
+                  <div class="form-group">
+                    <label for="InputMessage" style="font-size:15px; color:red">Change Profile Pic</label>
+                    <div class="input-group">
+                        
+                        <input type="file" name="img" style="font-size:15px"  />
+                    </div>
+                </div>
+                 @Html.TextBoxFor(m => m.Email, new {@class="form-control",Value=@obj.Email, Type="hidden" })
+                @Html.TextBoxFor(m => m.BloodGroup, new {@class="form-control",Value=@obj.BloodGroup, Type="hidden" })
+                @Html.TextBoxFor(m => m.JoinDate, new {@class="form-control",Value=@obj.JoinDate, Type="hidden" })
+                @Html.TextBoxFor(m => m.Sex, new {@class="form-control",Value=@obj.Sex , Type="hidden"})
+                @Html.TextBoxFor(m => m.ImageName, new {@class="form-control",Value=@obj.ImageName , Type="hidden"})
+                
+                <input type="submit" name="submit" id="submit" value="Update" class="pull-right btn btn-primary btn-lg ">
+                <br/><br />
+            </div>
+        </form></div>
+      <div class="col-md-2">
+          <img src="~/Content/Images/Update.jpg" />
+      </div>
+  </div>
+<br /><br /><br /><br />

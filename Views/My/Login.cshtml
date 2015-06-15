@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Login | Blood Donation System";
+}
+
+
+    
+<br    /><br /><br    /><br />
+
+    
+    
+
+<div class="container">
+    <div class="row">
+        <!--<form role="form" action="~/My/DoLogin">-->
+                @using (Html.BeginForm("DoLogin", "My",FormMethod.Post)){
+            <div class="col-lg-6" style="background-color:ButtonFace;border:solid;border-color:ActiveBorder;border-collapse:collapse">
+                @if (Session["Error"] != null) { 
+    <div style="color:red">User Not Exist. Wrong User Name or Password.</div>
+}
+                <br /><br />
+                <div class="well well-sm" style="font-size:10px"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
+                
+                <div class="form-group">
+                    @Html.Label("Enter User Name", "Enter User Name", new { style="color:black"})
+                    <div class="input-group">
+                        <!--<input type="email" class="form-control" id="Email" name="Email" placeholder="Enter Email" required>-->
+                        @Html.TextBox("Email","",new {  placeholder = "xyz123", @class="form-control", required = "required"}) 
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Enter Password", "Enter Password", new { style="color:black"})
+                    <div class="input-group">
+                        <!--<input type="password" class="form-control" id="Password" name="Password" placeholder="Enter Password" required>-->
+                        @Html.TextBox("Password","",new {Type="Password", placeholder = "****", @class="form-control", required = "required"}) 
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                  
+                
+                <input type="submit" name="submit" id="submit" value="Login" class=" pull-right btn btn-primary btn-lg">
+                <br /><br /><br />
+            </div>
+                }
+        <div class="col-lg-5 col-md-push-1">
+            <div class="col-md-12">
+                <img src="~/Content/Images/login.jpg" class="img-responsive"/>
+               
+            </div>
+        </div>
+    </div>
+</div><br /><br /><br /><br />
+
+
+
+

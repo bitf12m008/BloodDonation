@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Login | Blood Donation System";
+}
+
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="bootstrap.css" rel="stylesheet"/>
+    <script src="bootstrap.js"></script>
+</head>
+<body style="background-color:antiquewhite">
+    
+<br    /><br /><br    /><br />
+<div class="container">
+    <div class="row">
+        <form role="form" action="~/Admin/DoLogin">
+            <div class="col-lg-6" style="background-color:ButtonFace;border:solid;border-color:ActiveBorder;border-collapse:collapse">
+                <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
+                
+                <div class="form-group">
+                    <label for="InputEmail" style="font-size:15px; color:red">Enter Email</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="Email" name="Email" placeholder="Enter Email" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail" style="font-size:15px; color:red">Enter Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="Password" name="Password" placeholder="Enter Password" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                  
+                
+                <input type="submit" name="submit" id="submit" value="Login" class="btn btn-info pull-right">
+            </div>
+        </form>
+        <div class="col-lg-5 col-md-push-1">
+            
+        </div>
+    </div>
+</div><br /><br /><br /><br />
+</body>
+</html>
+
+

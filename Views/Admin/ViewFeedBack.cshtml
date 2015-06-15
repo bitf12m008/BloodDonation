@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BloodDonationSystem.Models.UserFeedback>
+
+@{
+    ViewBag.Title = "ViewFeedBack";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br /><br /><br />
+<div class="row" style="color:deepskyblue">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+ <div style="float:left;width:50%" >
+        <table  border="1"  style:"align:center" cellpadding="10" class="table table-striped table-bordered table-hover table-condensed table-responsive">
+            <tbody>
+                <tr style="font-size:20px; background-color:deepskyblue;color:white">
+
+                    <td><label> Name </label></td>
+                    <td><label> Email </label></td>
+                    <td><label>Message</label></td>
+                    
+
+                </tr>
+                @foreach (var p in Model)
+                {
+                    <tr style="font-size:20px">
+                        <td>@p.Name</td>
+                        <td>@p.Email</td>
+                        <td class="fa-usd">@p.Message</td>
+                        <td><a href="/Admin/DeleteFed?id=@p.Email" class="btn btn-primary btn-lg ">Delete</a></td>
+                        
+                        
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+        </div>
+    </div>
+
+
+
+<br /><br /><br />

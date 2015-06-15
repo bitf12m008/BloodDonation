@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "AddCity";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br /><br />
+  @using (Html.BeginForm("CityAdd", "Admin",FormMethod.Post)){
+            <div class="col-lg-6" style="background-color:ButtonFace;border:solid;border-color:ActiveBorder;border-collapse:collapse">
+                
+                <br /><br />
+                <div class="well well-sm" style="font-size:10px"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
+                
+                <div class="form-group">
+                    <label>City Name: </label>
+                    <div class="input-group">
+                        <input type="text" class="form-control"  name="city" placeholder="Enter City Name" required>
+                        
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                
+                <input type="submit" name="submit" id="submit" value="Add city" class=" pull-right btn btn-primary btn-lg">
+                <br /><br /><br />
+            </div>
+  }
